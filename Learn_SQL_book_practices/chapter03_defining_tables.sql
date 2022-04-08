@@ -71,7 +71,9 @@ AUTO_INCREMENT: Increments the value by 1 for each new record.
 */
 
 
--- Creation of co_employees table --
+
+/*
+Creation of co_employees table --
 
 CREATE TABLE co_employees (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -81,3 +83,71 @@ CREATE TABLE co_employees (
     age INT NOT NULL,
     date_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+*/
+
+
+/*
+
+                                        TABLES WITH FOREIGN KEY
+
+Syntax:
+FOREIGN KEY (name of the column in the new table) REFERENCES <parent table (id)> ON DELETE CASCADE ON UPDATE RESTRICT
+
+Besides ON DELETE CASCADE, other ON DELETE clauses are:
+
+- ON DELETE RESTRICT: Row in the parent table cannot be deleted if a row in the child table references that parent row.
+- ON DELETE SET NULL: If parent row is deleted in parent table, in child row the foreing key value will be setted to NULL values
+- ON DELETE SET DEFAULT: Child row foreign key value will be setted to default value
+- ON DELETE clauses can be applied when updating, to do that we use ON UPDATE.
+
+- UNIQUE (mentor_id, mentee_id): these values can be repeated
+
+
+- NAMED CONSTRAINTS (we can name or identify constraints rules with a custom name)
+- example:
+
+CONSTRAINT fk1 FOREIGN KEY (mentor_id) REFERENCES  co_employees (id) ON DELETE CASCADE ON UPDATE RESTRICT
+
+
+- We can asign two or more columns as primary keys
+
+
+CREATE TABLE mentorships (
+    mentor_id INT NOT NULL,
+    mentee_id INT NOT NULL,
+    status VARCHAR(255) NOT NULL,
+    project VARCHAR(255) NOT NULL,
+
+    PRIMARY KEY(mentor_id, mentee_id, project),
+    CONSTRAINT fk1 FOREIGN KEY (mentor_id) REFERENCES co_employees(id) ON DELETE CASCADE ON UPDATE RESTRICT,
+    CONSTRAINT fk2 FOREIGN KEY (mentee_id) REFERENCES co_employees(id) ON DELETE CASCADE ON UPDATE RESTRICT,
+    CONSTRAINT mm_constraint UNIQUE(mentor_id, mentee_id)
+);
+
+*/
+
+
+/*                              ALTERING TABLES
+To renaming tables the sytax is
+
+RENAME TABLE old_name TO new_name;
+
+RENAME TABLE co_employees TO employees;
+
+                        ALTERING COLUMNS AND TABLES CONSTRAINTS
+
+We first need write for entering edition mode
+ALTER TABLE table_name
+
+followed by
+
+AUTO_INCREMENT = starting_value
+
+ADD_CONSTRAINT [name of constraint] <details of constraint>
+
+DROP INDEX [name_of_constraint]
+
+DROP FOREIGN KEY [name_of_foreign_key]
+
+MODIFY COLUMN [column_name] <data_type> [constraints] to modify a column
