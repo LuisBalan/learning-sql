@@ -176,3 +176,25 @@ Altering mentorships table:
 1. Modifiy fk2 by changing UPDATE RESTRICT to ON UPDATE CASCADE
 2. Drop the nm_constraint constraint
 */
+
+/* In order to modify the foreign key constraint, we have to first drop the
+original foreign key using 
+
+
+after
+
+*/
+
+/*
+ALTER TABLE mentorships
+    DROP FOREIGN KEY fk2;
+*/
+
+/* Adding constraints to table
+
+ALTER TABLE mentorships
+    ADD CONSTRAINT fk2 FOREIGN KEY(mentee_id) REFERENCES employees(id)
+    ON DELETE CASCADE ON UPDATE CASCADE;
+    DROP INDEX nm_constraint;
+*/
+
