@@ -151,3 +151,28 @@ DROP INDEX [name_of_constraint]
 DROP FOREIGN KEY [name_of_foreign_key]
 
 MODIFY COLUMN [column_name] <data_type> [constraints] to modify a column
+
+*/
+
+/*
+Altering mentorships table:
+1. Drop the age column
+2. Add another column called salary which if of FLOAT type and cannot be
+null. This column should come afeter the contact_number column.
+3. Add a new column called years_in_company which is of INT type and cannot
+be null. This column should come after salary column.
+The script would be the next:
+*/
+
+/*
+ALTER TABLE employees
+    DROP COLUMN age,
+    ADD COLUMN salary FLOAT NOT NULL AFTER contact_number,
+    ADD COLUMN years_in_company INT NOT NULL AFTER salary;
+/*
+
+/*
+Altering mentorships table:
+1. Modifiy fk2 by changing UPDATE RESTRICT to ON UPDATE CASCADE
+2. Drop the nm_constraint constraint
+*/
