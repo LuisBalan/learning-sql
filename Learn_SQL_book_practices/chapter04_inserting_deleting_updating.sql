@@ -68,7 +68,7 @@ INSERT INTO mentorships VALUES (4, 21, "Ongoing", "Flynn Tech")
 -- INSERT INTO mentorships VALUES (4, 33, "Ongoing", "Flynn Tech") -- This produces error
 
 /*
-The next code for update employees fails due to ON UPDATE RESTRICT does not allow modify mentorships table.
+The next code for update employees fails due to ON UPDATE RESTRICT does not allow modify mentorships table. Because employee with id = 1 is a mentor (belongs to mentor_id column)
 */
 
 /*
