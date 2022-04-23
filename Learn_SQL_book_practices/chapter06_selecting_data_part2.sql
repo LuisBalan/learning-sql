@@ -52,6 +52,12 @@ SELECT SUM(salary) FROM employees;
 */
 
 /* GROUP BY
+Allows group
+SELECT gender, MAX(salary) FROM employees GROUP BY gender;
+*/
+
+/* HAVING
+SELECT gender AS genero, MAX(salary) FROM employees GROUP BY gender HAVING MAX(salary) > 1000;
 
 
 */
