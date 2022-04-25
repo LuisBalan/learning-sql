@@ -11,3 +11,14 @@ right_table
 on
 left_table.column_name = right_table.column_name;
 */
+
+/*
+SELECT employees.id, mentorships.mentor_id, employees.em_name AS 'Mentor', mentorships.project AS 'Project_name'
+FROM
+mentorships
+JOIN
+employees
+ON
+employees.id = mentorships.mentor_id;
+
+*/
