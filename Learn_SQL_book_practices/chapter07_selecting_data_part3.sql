@@ -20,5 +20,22 @@ JOIN
 employees
 ON
 employees.id = mentorships.mentor_id;
+*/
 
+/* Example of LEFT JOIN
+SELECT employees.em_name, employees.gender, employees.salary, mentorships.mentee_id,
+mentorships.project AS 'Mentee', mentorships.project FROM employees LEFT JOIN mentorships
+ON employees.id = mentorships.mentor_id;
+
+SELECT employees.id, employees.em_name, employees.gender, employees.salary, mentorships.mentee_id,
+mentorships.project  as 'Mentee',  mentorships.project FROM employees LEFT JOIN mentorships
+ON employees.id = mentorships.mentor_id;
+
+SELECT employees.id, employees.em_name, employees.gender, employees.salary, mentorships.mentor_id AS 'Mentor',
+mentorships.mentee_id AS 'Mentee', mentorships.project FROM employees LEFT JOIN mentorships
+ON employees.id = mentorships.mentor_id;
+
+SELECT employees.id, employees.em_name, employees.gender, employees.salary, mentorships.mentor_id AS 'Mentor',
+mentorships.mentee_id AS 'Mentee', mentorships.project FROM employees RIGHT JOIN mentorships
+ON employees.id = mentorships.mentor_id;
 */
