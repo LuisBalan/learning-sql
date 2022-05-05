@@ -77,3 +77,22 @@ DELIMITER ;
 To execute the procedure we use: CALL, for example:
 CALL select_info();
 */
+
+/*
+Another way of declare procedures is adding parameters */
+DELIMITER $$
+CREATE PROCEDURE employee_info(IN p_em_id INT)
+BEGIN
+    SELECT * FROM mentorships WHERE mentor_id = p_em_id;
+    SELECT * FROM mentorships WHERE mentee_id = p_em_id;
+    SELECT * FROM employees WHERE id = p_em_id;
+END $$
+
+DELIMITER;
+
+/*
+At the time to call the procedure, we can do:
+
+CALL employee_info(1);
+
+*/
