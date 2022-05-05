@@ -39,4 +39,7 @@ SET @result = SQRT(9);
 In order to visualize the value of the variable we can type:
 SELECT @result;
 
+We can do the declaration and assignment at once. We can do this with the command:
+
+SELECT @result := SQRT(9); (using := symbol)
 */
