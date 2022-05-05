@@ -43,3 +43,37 @@ We can do the declaration and assignment at once. We can do this with the comman
 
 SELECT @result := SQRT(9); (using := symbol)
 */
+
+/* Stored Procedures
+Are routines that we can save in memory and execute. For example (with syntaxis):
+ DELIMITER $$
+
+CREATE PROCEDURE name_of_procedure([parameters, if any])
+BEGIN
+    -- SQL Statements
+END $$
+
+DELIMITER ;
+*/
+
+/* Example applied to our DB
+
+
+*/
+
+/*
+DELIMITER $$
+
+CREATE PROCEDURE select_info()
+BEGIN
+    SELECT * FROM employees;
+    SELECT * FROM mentorships;
+END $$
+
+DELIMITER ;
+*/
+
+/*
+To execute the procedure we use: CALL, for example:
+CALL select_info();
+*/
